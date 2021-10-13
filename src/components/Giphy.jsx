@@ -64,14 +64,21 @@ const Giphy = () => {
       event.preventDefault()
       setIsError(false)
       setIsLoading(true)
-      const results = await axios("https://api.giphy.com/v1/gifs/search", {
-        params: {
-          api_key: "LoJpDfz10eeEdMEl7r18JxkPfXYaHfmZ",
-          q: search,
-          limit: 1000
-        }
-      })
-      setData(results.data.data);
+
+      try {
+        const results = await axios("https://api.giphy.com/v1/gifs/search", {
+          params: {
+            api_key: "LoJpDfz10eeEdMEl7r18JxkPfXYaHfmZ",
+            q: search,
+            limit: 1000
+          }
+        })
+        setData(results.data.data);
+      } catch (err) {
+        setIsError(true)
+        console.log(err)
+        setTimeout(()=> setIsError(false), 4000)
+      }
       setIsLoading(false)
   }
   return (
