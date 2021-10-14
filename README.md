@@ -5,5 +5,6 @@ npm install
 then
 ```
 npm start
-
 ```
+
+Enjoy!
