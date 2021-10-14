@@ -2,10 +2,12 @@ import React, { useEffect, useState } from 'react'
 import axios from "axios"
 import Loader from "./Loader"
 const Giphy = () => {
-  const [data, setData] = useState([])
-  const [isLoading, setIsLoading] = useState(false)
-  const [isError, setIsError] = useState(false)
-  const [search, setSearch] = useState("")
+  const [data, setData] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
+  const [search, setSearch] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage, setItemsPerPage] = useState(25);
   
   useEffect(()=>{
 
